@@ -112,9 +112,9 @@ $pdf->SetFont('Helvetica', '', 14, '', true);
 
 $pdf->AddPage();
 
-$caption = 'Művek alkotókkal';
+$caption = 'Operett adatbázis extraktum';
 
-$header = array('Mű neve', 'Mű eredeti neve', 'Színház', 'Évszám', 'Alkotó neve');
+$header = array('Név', 'Eredeti név', 'Színház', 'Évszám', 'Alkotó neve');
 
 $rows = $pdf->LoadData($param1,$param2,$param3);
 
