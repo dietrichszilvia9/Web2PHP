@@ -1,6 +1,23 @@
 <?php
 require_once 'menu.php';
 require_once 'build_menu.php';
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    $username = $_SESSION['username'];
+	$role = "Látogató";
+	if($_SESSION['role_id'] == 2) {
+		$role = "Regisztrált látogató";
+	}
+	if($_SESSION['role_id'] == 3) {
+		$role = "Admin";
+	}	
+    $status = "Bejelentkezve, mint $username ($role)";
+} else {
+    $status = "Látogató";
+}
+
 ?>
 
 <!DOCTYPE HTML>
@@ -21,7 +38,7 @@ require_once 'build_menu.php';
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
-
+				<p><?php echo $status; ?></p>
 				<!-- Header -->
 					<header id="header" class="alt">
 						<h1><a href="index.html">Operett adatbázis</a></h1>
